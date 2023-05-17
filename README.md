@@ -77,7 +77,7 @@ otus4  39.1M   313M     39.0M  /otus4
 ### Задание 2
 
 ```bash
-# get archive
+# получение архива
 wget -O archive.tar.gz --no-check-certificate https://drive.google.com/u/0/uc?id=1KRBNW33QWqbvbVHa3hLJivOAt60yukkg&export=download
 tar -xzvf archive.tar.gz
 zpool import -d zpoolexport/ otus
