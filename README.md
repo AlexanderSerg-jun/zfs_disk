@@ -1,4 +1,4 @@
-Проверяем командой lsblsk список доступных дисков которые есть на виртуальной машине![lsblk](https://user-images.githubusercontent.com/85576634/234539582-461ff77c-40dc-42e8-8ecf-8f13a34dbdf3.jpg)
+
 # zfs_disk
 
 ## Описание/Пошаговая инструкция выполнения домашнего задания:
@@ -47,21 +47,21 @@ _Результат:_
 ## Результаты:
 
 ### Задание 1
-
+Проверяем командой lsblsk список доступных дисков которые есть на виртуальной машине![lsblk](https://user-images.githubusercontent.com/85576634/234539582-461ff77c-40dc-42e8-8ecf-8f13a34dbdf3.jpg)
 ```bash
-# create 4 pools
+# Создание 4 пулов
 zpool create otus1 mirror /dev/sdb /dev/sdc
 zpool create otus2 mirror /dev/sdd /dev/sde
 zpool create otus3 mirror /dev/sdf /dev/sdg
 zpool create otus4 mirror /dev/sdh /dev/sdi
 
-# set different compressions
+# устанавливаем различиные методы сжатия
 zfs set compression=lzjb otus1
 zfs set compression=lz4 otus2
 zfs set compression=gzip-9 otus3
 zfs set compression=zle otus4
 
-# download file to each pool
+# Скачиваем файл в каждый пул
 for i in {1..4}; do wget -P /otus$i https://gutenberg.org/cache/epub/2600/pg2600.converter.log; done
 
 zfs list
